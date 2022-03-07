@@ -1,0 +1,120 @@
+
+
+.container {
+	margin: 0;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-family: "Source Code Pro", monospace;
+}
+
+.content h1 {
+    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    position: relative;
+    width: max-content;
+}
+  
+.content h1::before,
+.content h1::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+  
+.content h1::before {
+    background: var(--bg-color);
+    animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards;
+}
+  
+.content h1::after {
+    width: 0.125em;
+    background: black;
+    animation: typewriter var(--typewriterSpeed)
+        steps(var(--typewriterCharacters)) 1s forwards,
+      blink 750ms steps(var(--typewriterCharacters)) infinite;
+} 
+
+.content .text {
+    color: hsl(0 0% 0% / 0.7);
+    font-size: 2rem;
+    font-weight: 400;
+    opacity: 0;
+    transform: translateY(3rem);
+    animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+}
+
+
+@keyframes typewriter {
+    to {
+      left: 100%;
+    }
+}
+  
+@keyframes blink {
+    to {
+      background: transparent;
+    }
+}
+  
+@keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+
+.quote-body {
+    width: 100%;
+    height: 200px;
+    padding: 50px 35px;
+    
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.quote-body .icon-quote {
+    text-align: center;
+    font-size: 18px;
+    color: #22313F;
+    height: 42px;
+    overflow: auto;
+}
+
+.quote-body .icon-quote .icon {
+    margin-right: 5px;
+}
+
+.quote-body .author {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.quote-body .quote-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    border-top: 1px solid #93a0ac;
+    padding: 7px 0;
+}
+
+.quote-body .quote-buttons .btn button {
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    background-color: #455261;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.quote-body .quote-buttons button:active {
+    background-color: #ff3eff;
+}
+
